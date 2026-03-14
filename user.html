@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información | COBAT 22 🍏</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Gaegu:wght@400;700&family=Patrick+Hand&display=swap');
+
+        :root {
+            --apple-red: #ff6b6b;
+            --apple-green: #9edb64;
+            --soft-yellow: #fff9c4;
+            --forest-green: #2d5a27;
+            --paper-white: #ffffff;
+            --bg-check: #e1f2d5;
+        }
+
+        body {
+            background-color: var(--apple-green);
+            background-image: 
+                linear-gradient(45deg, var(--bg-check) 25%, transparent 25%), 
+                linear-gradient(-45deg, var(--bg-check) 25%, transparent 25%), 
+                linear-gradient(45deg, transparent 75%, var(--bg-check) 75%), 
+                linear-gradient(-45deg, transparent 75%, var(--bg-check) 75%);
+            background-size: 40px 40px;
+            font-family: 'Patrick Hand', cursive;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* --- MENÚ --- */
+        .main-nav {
+            width: 90%; max-width: 950px;
+            background: rgba(255, 255, 255, 0.95);
+            margin: 20px 0; padding: 10px;
+            border-radius: 50px; display: flex; justify-content: space-around;
+            border: 4px solid var(--forest-green);
+            position: sticky; top: 10px; z-index: 1000;
+        }
+
+        nav a {
+            text-decoration: none; color: var(--forest-green);
+            font-family: 'Fredoka', sans-serif; font-size: 13px; font-weight: 600;
+            padding: 8px 12px; border-radius: 30px; transition: 0.3s;
+        }
+
+        nav a.active { background: var(--forest-green); color: white; }
+
+        /* --- CONTENEDOR TIPO PERIÓDICO MURAL --- */
+        .info-container {
+            width: 90%; max-width: 900px;
+            background: var(--paper-white);
+            border-radius: 20px; padding: 50px;
+            border: 10px solid var(--soft-yellow);
+            box-shadow: 20px 20px 0 rgba(0,0,0,0.1);
+            margin-bottom: 50px; position: relative;
+            background-image: radial-gradient(#d1d1d1 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        /* --- IMÁGENES DECORATIVAS (LOGO Y PLANTEL) --- */
+        .info-sticker {
+            position: absolute; width: 160px; height: 160px;
+            background: white; border: 4px solid var(--apple-red);
+            border-radius: 20px; transform: rotate(-5deg);
+            padding: 5px; box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
+            z-index: 10;
+        }
+
+        #sticker-logo { top: -40px; right: 20px; transform: rotate(10deg); }
+        #sticker-school { bottom: -40px; left: 20px; transform: rotate(-10deg); width: 220px; height: 140px; }
+
+        /* --- SECCIONES DE TEXTO --- */
+        .news-block {
+            background: white; border: 2px solid #eee;
+            padding: 25px; margin-bottom: 30px;
+            border-radius: 15px; position: relative;
+        }
+
+        .news-block h2 {
+            font-family: 'Fredoka'; color: var(--apple-red);
+            margin-top: 0; border-bottom: 3px solid var(--apple-green);
+            display: inline-block;
+        }
+
+        .highlight-box {
+            background: var(--apple-green); color: white;
+            padding: 20px; border-radius: 20px;
+            font-size: 22px; text-align: center;
+            margin-bottom: 30px; transform: rotate(-1deg);
+        }
+
+        .details-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+        }
+
+        .detail-item {
+            background: var(--soft-yellow); padding: 15px;
+            border-radius: 15px; border-bottom: 5px solid #e6db74;
+        }
+
+        .detail-item b { color: var(--forest-green); font-family: 'Fredoka'; }
+
+    </style>
+</head>
+<body onclick="playMusic()">
+
+    <audio id="bgMusic" loop>
+        <source src="cancion.mp3" type="audio/mpeg">
+    </audio>
+
+    <header class="main-nav">
+        <nav>
+            <a href="index.html">HOME</a>
+            <a href="admin.html">ADMIN II</a>
+            <a href="historia.html">CONCIENCIA</a>
+            <a href="comu.html">COMUNICACIÓN</a>
+            <a href="psico.html">PSICOLOGÍA</a>
+            <a href="aut.html">AUTORES</a>
+            <a href="user.html" class="active">INFORMACIÓN</a>
+        </nav>
+    </header>
+
+    <div class="info-container">
+        <img src="logo.png" id="sticker-logo" class="info-sticker" alt="Logo COBAT">
+        <img src="plantel.png" id="sticker-school" class="info-sticker" alt="Plantel 22">
+
+        <div class="highlight-box">
+            ¿Qué es el COBAT 22? 🍎
+        </div>
+
+        <div class="news-block">
+            <h2>Nuestra Identidad</h2>
+            <p style="font-size: 19px;">El <b>Colegio de Bachilleres del Estado de Tamaulipas (COBAT)</b> es una institución líder en educación media superior. Nuestro objetivo es formar jóvenes con valores, pensamiento crítico y las herramientas necesarias para enfrentar los retos del futuro y la universidad.</p>
+        </div>
+
+        <div class="news-block" style="border-left: 8px solid var(--apple-red);">
+            <h2>¿Cómo surgimos?</h2>
+            <p style="font-size: 19px;">El COBAT nació de la necesidad de brindar una educación de calidad en todo Tamaulipas. El <b>Plantel 22</b>, ubicado en Reynosa, surgió para atender a una comunidad creciente de jóvenes entusiastas, convirtiéndose rápidamente en un referente de excelencia académica y deportiva en la región.</p>
+        </div>
+
+        <div class="news-block">
+            <h2>Detalles del Plantel</h2>
+            <div class="details-grid">
+                <div class="detail-item">
+                    <b>📍 Ubicación:</b><br>
+                    Reynosa, Tamaulipas. Un punto estratégico para la educación fronteriza.
+                </div>
+                <div class="detail-item">
+                    <b>🌿 Ambiente:</b><br>
+                    Contamos con áreas verdes, laboratorios y espacios para el arte y la cultura.
+                </div>
+                <div class="detail-item">
+                    <b>🎓 Comunidad:</b><br>
+                    Más que una escuela, somos una familia de estudiantes y docentes comprometidos.
+                </div>
+                <div class="detail-item">
+                    <b>🍎 Ciclo:</b><br>
+                    Estamos viviendo el emocionante semestre 2026-A.
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 20px;">
+            <p style="font-family: 'Fredoka'; color: var(--forest-green); font-size: 20px;">¡Soy Orgullosamente COBAT! ✨</p>
+        </div>
+    </div>
+
+    <footer>Cobat 22 Hub • Información Institucional</footer>
+
+    <script>
+        function playMusic() {
+            var audio = document.getElementById("bgMusic");
+            if (audio.paused) { audio.play(); }
+        }
+    </script>
+</body>
+</html>
