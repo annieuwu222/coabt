@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administración II | Apple-Core 🍎</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Gaegu:wght@400;700&family=Patrick+Hand&display=swap');
+
+        :root {
+            --apple-red: #ff6b6b;
+            --apple-green: #9edb64;
+            --soft-yellow: #fff9c4;
+            --leaf-green: #5ca445;
+            --sky-blue: #bae1ff;
+            --paper-white: #ffffff;
+            --ink: #3a473b;
+        }
+
+        body {
+            background-color: var(--apple-green);
+            background-image: radial-gradient(var(--bg-check) 2px, transparent 2px);
+            background-size: 30px 30px; /* Puntitos tipo bullet journal */
+            font-family: 'Patrick Hand', cursive;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: var(--ink);
+        }
+
+        /* --- MENÚ --- */
+        .main-nav {
+            width: 90%; max-width: 900px;
+            background: rgba(255, 255, 255, 0.9);
+            margin: 20px 0; padding: 10px;
+            border-radius: 50px; display: flex; justify-content: space-around;
+            border: 4px solid var(--paper-white);
+            position: sticky; top: 10px; z-index: 1000;
+        }
+
+        nav a {
+            text-decoration: none; color: var(--leaf-green);
+            font-family: 'Fredoka', sans-serif; font-size: 13px; font-weight: 600;
+            padding: 8px 12px; border-radius: 30px; transition: 0.3s;
+        }
+
+        nav a.active { background: var(--apple-red); color: white; }
+
+        /* --- CONTENEDOR PRINCIPAL --- */
+        .notebook-page {
+            width: 90%; max-width: 850px;
+            background: var(--paper-white);
+            border-radius: 30px; padding: 40px;
+            border-left: 15px solid var(--apple-red); /* Efecto lomo de libreta */
+            box-shadow: 10px 10px 0 rgba(0,0,0,0.05);
+            margin-bottom: 50px; position: relative;
+        }
+
+        /* --- 2 IMÁGENES GRANDES (Polaroids) --- */
+        .polaroid {
+            position: absolute; width: 200px;
+            background: white; padding: 10px 10px 30px 10px;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
+            border: 1px solid #eee; z-index: 5;
+        }
+        .polaroid img { width: 100%; height: 180px; object-fit: cover; border-radius: 5px; }
+
+        #photo-1 { top: 50px; right: -80px; transform: rotate(8deg); }
+        #photo-2 { bottom: 150px; left: -80px; transform: rotate(-12deg); }
+
+        /* --- ESTILOS DE BLOQUES --- */
+        .title-banner {
+            background: var(--apple-green);
+            color: white; padding: 25px; border-radius: 20px;
+            text-align: center; margin-bottom: 30px;
+            font-family: 'Fredoka', sans-serif;
+            transform: skew(-2deg);
+        }
+
+        .sticky-note {
+            background: var(--soft-yellow);
+            padding: 25px; border-radius: 5px;
+            margin-bottom: 25px; border-bottom-right-radius: 40px;
+            box-shadow: 5px 5px 0 rgba(0,0,0,0.02);
+            font-size: 19px;
+        }
+
+        .grid-info {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+        }
+
+        .info-card {
+            padding: 20px; border-radius: 20px;
+            border: 3px dashed var(--apple-green);
+        }
+
+        .tag {
+            display: inline-block; padding: 5px 15px;
+            border-radius: 50px; font-weight: bold;
+            margin-bottom: 10px; font-family: 'Fredoka';
+        }
+
+        /* --- DOCENTE --- */
+        .teacher-section {
+            display: flex; align-items: center; gap: 20px;
+            background: var(--sky-blue); padding: 20px;
+            border-radius: 50px 20px 50px 20px; margin-top: 30px;
+        }
+
+        .teacher-section img {
+            width: 100px; height: 100px; border-radius: 50%;
+            border: 5px solid white;
+        }
+
+        /* --- CUADRO DE PALABRAS (Temario) --- */
+        .word-cloud {
+            display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px;
+        }
+
+        .word-box {
+            background: white; border: 2px solid var(--apple-red);
+            padding: 8px 18px; border-radius: 15px;
+            color: var(--apple-red); font-weight: bold;
+            transition: 0.3s; cursor: pointer;
+        }
+
+        .word-box:hover { background: var(--apple-red); color: white; transform: scale(1.1); }
+
+    </style>
+</head>
+<body onclick="playMusic()">
+
+    <audio id="bgMusic" loop>
+        <source src="cancion.mp3" type="audio/mpeg">
+    </audio>
+
+    <header class="main-nav">
+        <nav>
+            <a href="index.html">HOME</a>
+            <a href="admin.html" class="active">ADMIN II</a>
+            <a href="historia.html">CONCIENCIA</a>
+            <a href="comu.html">COMUNICACIÓN</a>
+            <a href="psico.html">PSICOLOGÍA</a>
+            <a href="aut.html">AUTORES</a>
+            <a href="user.html">EDITORES</a>
+        </nav>
+    </header>
+
+    <div class="notebook-page">
+        <div class="polaroid" id="photo-1">
+            <img src="lateral1.png" alt="Admin Art">
+            <p style="text-align:center; margin:10px 0 0 0;">✨ Efficiency</p>
+        </div>
+        <div class="polaroid" id="photo-2">
+            <img src="lateral2.png" alt="Office Art">
+            <p style="text-align:center; margin:10px 0 0 0;">🍎 Planning</p>
+        </div>
+
+        <div class="title-banner">
+            <h1 style="margin:0; font-size: 32px;">Fundamentos de Administración II</h1>
+        </div>
+
+        <div class="sticky-note">
+            <span class="tag" style="background: var(--apple-red); color:white;">EL PROPÓSITO 🎯</span>
+            <p style="margin:0;">Buscamos que cada estudiante logre <b>comprender y dominar</b> los principios fundamentales de la administración. No es solo teoría; es aprender a organizar el mundo, tomar decisiones inteligentes y usar los recursos de forma que impacten positivamente en nuestra sociedad. ¡Administrar es el arte de hacer que las cosas sucedan!</p>
+        </div>
+
+        <div class="grid-info">
+            <div class="info-card" style="border-color: var(--apple-red);">
+                <span class="tag" style="background: var(--apple-green); color:white;">PROGRESIÓN 01</span>
+                <p>Análisis profundo del <b>Proceso Administrativo</b>. Desde la planeación hasta la ejecución en empresas reales.</p>
+            </div>
+            <div class="info-card" style="border-color: var(--sky-blue);">
+                <span class="tag" style="background: var(--sky-blue); color: #2d5a8e;">PROGRESIÓN 02</span>
+                <p>Dominio de <b>Métodos de Control</b>. ¿Cómo sabemos si vamos por buen camino? Aquí lo aprendemos.</p>
+            </div>
+        </div>
+
+        <div class="teacher-section">
+            <img src="img1.png" alt="Lucía Sánchez">
+            <div>
+                <h3 style="margin:0; font-family: 'Fredoka';">Mtra. Lucía Sánchez</h3>
+                <p style="margin:0; font-size: 14px; opacity: 0.8;">Guía y Titular de la Materia</p>
+                <i style="font-family: 'Patrick Hand';">"Tu futuro se administra desde hoy."</i>
+            </div>
+        </div>
+
+        <h2 style="font-family: 'Fredoka'; margin-top: 40px; color: var(--apple-red);">📖 Conceptos Clave del Parcial</h2>
+        <div class="word-cloud">
+            <div class="word-box">Planeación</div>
+            <div class="word-box">Organización</div>
+            <div class="word-box">Control Social</div>
+            <div class="word-box">Toma de Decisiones</div>
+            <div class="word-box">Eficiencia</div>
+            <div class="word-box">Racionalidad</div>
+            <div class="word-box">Responsabilidad</div>
+            <div class="word-box">Liderazgo</div>
+        </div>
+
+        <div style="margin-top: 30px; border-top: 2px dashed #ddd; padding-top: 20px; font-size: 14px; text-align: center;">
+            <p>Nota: Este parcial se enfoca en la práctica administrativa ética. 🍏</p>
+        </div>
+    </div>
+
+    <footer>Cobat 22 Hub • Administración II</footer>
+
+    <script>
+        function playMusic() {
+            var audio = document.getElementById("bgMusic");
+            if (audio.paused) { audio.play(); }
+        }
+    </script>
+</body>
+</html>
