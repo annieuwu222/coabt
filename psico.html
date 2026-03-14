@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Psicología II | Apple-Core 🍎</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Gaegu:wght@400;700&family=Patrick+Hand&display=swap');
+
+        :root {
+            --apple-red: #ff6b6b;
+            --apple-green: #9edb64;
+            --soft-yellow: #fff9c4;
+            --brain-pink: #ffc2d1;
+            --paper-white: #ffffff;
+            --ink: #4a5d4b;
+        }
+
+        body {
+            background-color: var(--apple-green);
+            background-image: 
+                radial-gradient(var(--bg-check) 2px, transparent 2px),
+                linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px);
+            background-size: 30px 30px;
+            font-family: 'Patrick Hand', cursive;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* --- MENÚ --- */
+        .main-nav {
+            width: 90%; max-width: 950px;
+            background: rgba(255, 255, 255, 0.95);
+            margin: 20px 0; padding: 10px;
+            border-radius: 50px; display: flex; justify-content: space-around;
+            border: 4px solid var(--soft-yellow);
+            position: sticky; top: 10px; z-index: 1000;
+        }
+
+        nav a {
+            text-decoration: none; color: var(--ink);
+            font-family: 'Fredoka', sans-serif; font-size: 13px; font-weight: 600;
+            padding: 8px 12px; border-radius: 30px; transition: 0.3s;
+        }
+
+        nav a.active { background: var(--soft-yellow); color: #d4a017; }
+
+        /* --- CONTENEDOR PRINCIPAL --- */
+        .psico-page {
+            width: 85%; max-width: 800px;
+            background: var(--paper-white);
+            border-radius: 60px 60px 20px 20px; padding: 45px;
+            border: 10px solid var(--soft-yellow);
+            box-shadow: 0 15px 0 rgba(0,0,0,0.05);
+            margin-bottom: 50px; position: relative;
+        }
+
+        /* --- 2 IMÁGENES GRANDES (Circulares) --- */
+        .mind-img {
+            position: absolute; width: 180px; height: 180px;
+            border-radius: 50%; border: 6px solid var(--apple-green);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            object-fit: cover; z-index: 10;
+        }
+
+        #psico-img-1 { top: 100px; left: -100px; border-color: var(--apple-red); }
+        #psico-img-2 { bottom: 150px; right: -100px; border-color: var(--brain-pink); }
+
+        /* --- SECCIONES --- */
+        .header-psico {
+            text-align: center; margin-bottom: 30px;
+        }
+
+        .header-psico h1 {
+            font-family: 'Fredoka'; font-size: 42px; color: var(--apple-red);
+            margin: 0;
+        }
+
+        .thought-bubble {
+            background: var(--soft-yellow); padding: 30px;
+            border-radius: 50px; position: relative;
+            margin-bottom: 40px; border: 3px dashed var(--apple-green);
+            font-size: 20px;
+        }
+
+        .progression-cloud {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+        }
+
+        .cloud-card {
+            background: white; border: 2px solid #eee;
+            padding: 20px; border-radius: 30px;
+            transition: 0.3s;
+        }
+        .cloud-card:hover { border-color: var(--apple-red); transform: translateY(-5px); }
+
+        .cloud-card b { display: block; margin-bottom: 10px; color: var(--apple-red); font-family: 'Fredoka'; }
+
+        /* --- DOCENTE --- */
+        .teacher-note {
+            background: var(--brain-pink);
+            padding: 25px; border-radius: 30px;
+            margin-top: 40px; display: flex; align-items: center; gap: 20px;
+            border-bottom: 8px solid #ff9ead;
+        }
+
+        .teacher-note img {
+            width: 100px; height: 100px; border-radius: 30px;
+            border: 4px solid white; transform: rotate(-5deg);
+        }
+
+        /* --- CUADRO DE PALABRAS --- */
+        .words-grid {
+            display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;
+            margin-top: 30px;
+        }
+        .word-tag {
+            background: var(--apple-green); color: white;
+            padding: 6px 14px; border-radius: 50px;
+            font-size: 14px; font-weight: bold;
+        }
+
+    </style>
+</head>
+<body onclick="playMusic()">
+
+    <audio id="bgMusic" loop>
+        <source src="cancion.mp3" type="audio/mpeg">
+    </audio>
+
+    <header class="main-nav">
+        <nav>
+            <a href="index.html">HOME</a>
+            <a href="admin.html">ADMIN II</a>
+            <a href="historia.html">CONCIENCIA</a>
+            <a href="comu.html">COMUNICACIÓN</a>
+            <a href="psico.html" class="active">PSICOLOGÍA</a>
+            <a href="aut.html">AUTORES</a>
+            <a href="user.html">INFORMACIÓN</a>
+        </nav>
+    </header>
+
+    <div class="psico-page">
+        <img src="psico1.png" id="psico-img-1" class="mind-img" alt="Procesos">
+        <img src="psico2.png" id="psico-img-2" class="mind-img" alt="Aprendizaje">
+
+        <div class="header-psico">
+            <h1>Psicología II 🧠</h1>
+            <p style="font-size: 22px; color: var(--leaf-green);">"Explorando el laberinto de la mente"</p>
+        </div>
+
+        <div class="thought-bubble">
+            <span style="font-size: 24px;">💭</span> <b>Propósito Central:</b><br>
+            En este curso, nos sumergiremos en el fascinante mundo de los <b>procesos cognitivos</b>. Queremos que entiendas cómo tu cerebro percibe, atiende y recuerda información, para que puedas mejorar tus estilos de aprendizaje y dominar tus habilidades metacognitivas. ¡Aprender a aprender es el superpoder definitivo!
+        </div>
+
+        <div class="progression-cloud">
+            <div class="cloud-card" style="grid-column: span 2;">
+                <b>📈 Progresión 1: Procesos Cognitivos Básicos</b>
+                Aprenderemos cómo la percepción nos engaña, cómo la atención nos enfoca y cómo la memoria guarda nuestros tesoros más preciados.
+            </div>
+            <div class="cloud-card">
+                <b>📈 Progresión 2: Procesos Superiores</b>
+                Analizamos el pensamiento complejo, la magia del lenguaje y los diferentes tipos de inteligencia que poseemos.
+            </div>
+            <div class="cloud-card">
+                <b>📈 Progresión 3: Estilos de Aprendizaje</b>
+                Es momento de reflexionar: ¿Cómo aprendes tú? Identificamos estrategias personalizadas para potenciar tu rendimiento académico.
+            </div>
+        </div>
+
+        <div class="teacher-note">
+            <img src="img4.png" alt="Bertha Gabriela Piña">
+            <div>
+                <h3 style="margin:0; font-family: 'Fredoka';">Mtra. Bertha Gabriela Piña</h3>
+                <p style="margin:0; font-size: 15px;">Guía de Procesos Mentales</p>
+                <i style="font-family: 'Patrick Hand'; font-size: 18px;">"Conocerse a uno mismo es el inicio de toda sabiduría."</i>
+            </div>
+        </div>
+
+        <div class="words-grid">
+            <div class="word-tag">Percepción</div>
+            <div class="word-tag">Atención</div>
+            <div class="word-tag">Memoria</div>
+            <div class="word-tag">Inteligencia</div>
+            <div class="word-tag">Metacognición</div>
+            <div class="word-tag">Lenguaje</div>
+            <div class="word-tag">Pensamiento</div>
+            <div class="word-tag">Neurociencia</div>
+        </div>
+    </div>
+
+    <footer>Cobat 22 Hub • Psicología II • 2026</footer>
+
+    <script>
+        function playMusic() {
+            var audio = document.getElementById("bgMusic");
+            if (audio.paused) { audio.play(); }
+        }
+    </script>
+</body>
+</html>
