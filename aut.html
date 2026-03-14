@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autores | Apple-Core 🍎</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Gaegu:wght@400;700&family=Patrick+Hand&display=swap');
+
+        :root {
+            --apple-red: #ff6b6b;
+            --apple-green: #9edb64;
+            --soft-yellow: #fff9c4;
+            --sky-blue: #bae1ff;
+            --paper-white: #ffffff;
+            --ink: #3a473b;
+        }
+
+        body {
+            background-color: var(--apple-green);
+            background-image: 
+                linear-gradient(var(--bg-check) 2px, transparent 2px),
+                linear-gradient(90deg, var(--bg-check) 2px, transparent 2px);
+            background-size: 30px 30px;
+            font-family: 'Patrick Hand', cursive;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* --- MENÚ --- */
+        .main-nav {
+            width: 90%; max-width: 950px;
+            background: rgba(255, 255, 255, 0.95);
+            margin: 20px 0; padding: 10px;
+            border-radius: 50px; display: flex; justify-content: space-around;
+            border: 4px solid var(--apple-green);
+            position: sticky; top: 10px; z-index: 1000;
+        }
+
+        nav a {
+            text-decoration: none; color: var(--ink);
+            font-family: 'Fredoka', sans-serif; font-size: 13px; font-weight: 600;
+            padding: 8px 12px; border-radius: 30px; transition: 0.3s;
+        }
+
+        nav a.active { background: var(--apple-green); color: white; }
+
+        /* --- CABECERA --- */
+        .header-autores {
+            text-align: center;
+            background: var(--paper-white);
+            padding: 30px 60px;
+            border-radius: 100px 100px 20px 20px;
+            border: 5px solid var(--apple-red);
+            margin-bottom: 40px;
+            box-shadow: 10px 10px 0 var(--apple-red);
+        }
+
+        /* --- CUADRÍCULA DE AUTORES --- */
+        .authors-grid {
+            width: 90%;
+            max-width: 1100px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .author-sticker {
+            background: var(--paper-white);
+            padding: 20px;
+            border-radius: 25px;
+            border: 3px dashed #ccc;
+            position: relative;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .author-sticker:hover {
+            transform: scale(1.03) rotate(1deg);
+            border-color: var(--apple-red);
+        }
+
+        /* Decoración de cinta (Tape) */
+        .author-sticker::after {
+            content: "";
+            position: absolute;
+            top: -10px;
+            width: 80px;
+            height: 25px;
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(0,0,0,0.05);
+            transform: rotate(-3deg);
+        }
+
+        .author-sticker img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 15px;
+            border: 4px solid var(--soft-yellow);
+        }
+
+        .author-sticker h3 {
+            font-family: 'Fredoka';
+            margin: 10px 0;
+            font-size: 24px;
+            color: var(--apple-red);
+        }
+
+        .author-sticker p {
+            font-size: 16px;
+            line-height: 1.4;
+            color: #555;
+        }
+
+        /* Colores alternados para las etiquetas de materia */
+        .materia-tag {
+            font-family: 'Fredoka';
+            font-size: 12px;
+            padding: 4px 12px;
+            border-radius: 50px;
+            text-transform: uppercase;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 5px;
+        }
+
+        footer { margin-bottom: 30px; color: white; font-weight: bold; }
+
+    </style>
+</head>
+<body onclick="playMusic()">
+
+    <audio id="bgMusic" loop>
+        <source src="cancion.mp3" type="audio/mpeg">
+    </audio>
+
+    <header class="main-nav">
+        <nav>
+            <a href="index.html">HOME</a>
+            <a href="admin.html">ADMIN II</a>
+            <a href="historia.html">CONCIENCIA</a>
+            <a href="comu.html">COMUNICACIÓN</a>
+            <a href="psico.html">PSICOLOGÍA</a>
+            <a href="aut.html" class="active">AUTORES</a>
+            <a href="user.html">INFORMACIÓN</a>
+        </nav>
+    </header>
+
+    <div class="header-autores">
+        <h1 style="margin:0; font-family: 'Fredoka'; font-size: 40px; color: var(--apple-red);">🍎 Galería de Sabios 🍎</h1>
+        <p style="margin:5px 0 0 0; font-size: 24px; color: var(--leaf-green);">Mentes que nutrieron nuestras materias</p>
+    </div>
+
+    <div class="authors-grid">
+        
+        <div class="author-sticker">
+            <span class="materia-tag" style="background: var(--apple-red);">Administración</span>
+            <img src="autor1.png" alt="Autor 1">
+            <h3>Henry Fayol</h3>
+            <p>El gran arquitecto de la administración moderna. Nos enseñó que para que una empresa dé frutos, necesita orden y procesos claros.</p>
+        </div>
+
+        <div class="author-sticker">
+            <span class="materia-tag" style="background: var(--apple-green);">Historia</span>
+            <img src="autor2.png" alt="Autor 2">
+            <h3>Eric Hobsbawm</h3>
+            <p>Viajero del tiempo a través de sus libros. Analizó las revoluciones y el "siglo corto" para que entendiéramos nuestro presente.</p>
+        </div>
+
+        <div class="author-sticker">
+            <span class="materia-tag" style="background: var(--sky-blue);">Comunicación</span>
+            <img src="autor3.png" alt="Autor 3">
+            <h3>Marshall McLuhan</h3>
+            <p>Adivinó el futuro de Internet. Nos dijo que el medio es el mensaje y que el mundo se convertiría en una pequeña aldea global.</p>
+        </div>
+
+        <div class="author-sticker">
+            <span class="materia-tag" style="background: #ffc2d1;">Psicología</span>
+            <img src="autor4.png" alt="Autor 4">
+            <h3>Jean Piaget</h3>
+            <p>Explorador de la mente infantil. Descubrió los escalones que sube nuestro cerebro para construir el conocimiento.</p>
+        </div>
+
+        <div class="author-sticker">
+            <span class="materia-tag" style="background: var(--soft-yellow); color: #856404;">Sociología</span>
+            <img src="autor5.png" alt="Autor 5">
+            <h3>Lev Vygotsky</h3>
+            <p>Defensor del aprendizaje compartido. Creía que florecemos más rápido cuando aprendemos junto a los demás.</p>
+        </div>
+
+        <div class="author-sticker">
+            <span class="materia-tag" style="background: var(--apple-red);">Administración</span>
+            <img src="autor6.png" alt="Autor 6">
+            <h3>Frederick Taylor</h3>
+            <p>El experto en eficiencia. Buscó la manera científica de aprovechar cada minuto y cada recurso en el trabajo.</p>
+        </div>
+
+    </div>
+
+    <footer>Cobat 22 Hub • Sección de Autores • 2026</footer>
+
+    <script>
+        function playMusic() {
+            var audio = document.getElementById("bgMusic");
+            if (audio.paused) { audio.play(); }
+        }
+    </script>
+</body>
+</html>
