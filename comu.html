@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comunicación y Sociedad II | Apple-Core 🍎</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Gaegu:wght@400;700&family=Patrick+Hand&display=swap');
+
+        :root {
+            --apple-red: #ff6b6b;
+            --apple-green: #9edb64;
+            --soft-yellow: #fff9c4;
+            --sky-blue: #bae1ff;
+            --paper-white: #ffffff;
+            --ink: #3d3d3d;
+        }
+
+        body {
+            background-color: var(--apple-green);
+            background-image: 
+                radial-gradient(var(--soft-yellow) 15%, transparent 16%),
+                radial-gradient(var(--soft-yellow) 15%, transparent 16%);
+            background-size: 40px 40px;
+            background-position: 0 0, 20px 20px; /* Fondo de lunares sutil */
+            font-family: 'Patrick Hand', cursive;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: var(--ink);
+        }
+
+        /* --- MENÚ CORREGIDO --- */
+        .main-nav {
+            width: 90%; max-width: 950px;
+            background: rgba(255, 255, 255, 0.95);
+            margin: 20px 0; padding: 10px;
+            border-radius: 50px; display: flex; justify-content: space-around;
+            border: 4px solid var(--apple-red);
+            position: sticky; top: 10px; z-index: 1000;
+        }
+
+        nav a {
+            text-decoration: none; color: var(--apple-red);
+            font-family: 'Fredoka', sans-serif; font-size: 13px; font-weight: 600;
+            padding: 8px 12px; border-radius: 30px; transition: 0.3s;
+        }
+
+        nav a.active { background: var(--apple-red); color: white; }
+
+        /* --- CONTENEDOR PRINCIPAL --- */
+        .comu-page {
+            width: 85%; max-width: 800px;
+            background: var(--paper-white);
+            border-radius: 50px 5px 50px 5px; padding: 45px;
+            border: 5px solid var(--sky-blue);
+            box-shadow: 15px 15px 0 var(--apple-red);
+            margin-bottom: 50px; position: relative;
+        }
+
+        /* --- 2 IMÁGENES GRANDES (Estilo Cinta Adhesiva) --- */
+        .tape-photo {
+            position: absolute; width: 220px; height: 280px;
+            background: white; padding: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08); z-index: 1;
+        }
+        .tape-photo img { width: 100%; height: 100%; object-fit: cover; border-radius: 10px; }
+        .tape-photo::before {
+            content: ""; position: absolute; top: -15px; left: 50%;
+            width: 100px; height: 30px; background: rgba(255, 255, 255, 0.5);
+            transform: translateX(-50%); border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        #comu-img-1 { top: 80px; left: -120px; transform: rotate(-8deg); }
+        #comu-img-2 { bottom: 80px; right: -120px; transform: rotate(8deg); }
+
+        /* --- SECCIONES --- */
+        .header-title {
+            text-align: center; margin-bottom: 40px;
+        }
+        .header-title h1 { 
+            font-family: 'Fredoka'; font-size: 38px; color: var(--apple-red); 
+            text-shadow: 2px 2px var(--soft-yellow); margin: 0;
+        }
+
+        .bubble-info {
+            background: var(--sky-blue); padding: 30px;
+            border-radius: 30px; margin-bottom: 30px;
+            font-size: 20px; line-height: 1.6;
+        }
+
+        .progression-grid {
+            display: flex; flex-direction: column; gap: 15px;
+        }
+        .prog-box {
+            background: #f8f9fa; border-radius: 20px; padding: 20px;
+            border-left: 12px solid var(--apple-green);
+            transition: 0.3s;
+        }
+        .prog-box:hover { background: var(--soft-yellow); }
+
+        /* --- DOCENTE --- */
+        .teacher-badge {
+            display: flex; align-items: center; gap: 20px;
+            background: var(--apple-red); color: white;
+            padding: 20px; border-radius: 100px 20px 100px 20px;
+            margin-top: 40px;
+        }
+        .teacher-badge img {
+            width: 90px; height: 90px; border-radius: 50%;
+            border: 4px solid white;
+        }
+
+        /* --- CUADRO DE PALABRAS --- */
+        .word-wrap {
+            display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;
+            margin-top: 30px;
+        }
+        .word-item {
+            background: var(--apple-green); color: white;
+            padding: 5px 15px; border-radius: 10px;
+            font-family: 'Fredoka'; font-size: 14px;
+        }
+
+    </style>
+</head>
+<body onclick="playMusic()">
+
+    <audio id="bgMusic" loop>
+        <source src="cancion.mp3" type="audio/mpeg">
+    </audio>
+
+    <header class="main-nav">
+        <nav>
+            <a href="index.html">HOME</a>
+            <a href="admin.html">ADMIN II</a>
+            <a href="historia.html">CONCIENCIA</a>
+            <a href="comu.html" class="active">COMUNICACIÓN</a>
+            <a href="psico.html">PSICOLOGÍA</a>
+            <a href="aut.html">AUTORES</a>
+            <a href="user.html">INFORMACIÓN</a> </nav>
+    </header>
+
+    <div class="comu-page">
+        <div class="tape-photo" id="comu-img-1">
+            <img src="comu1.png" alt="Medios">
+        </div>
+        <div class="tape-photo" id="comu-img-2">
+            <img src="comu2.png" alt="Internet">
+        </div>
+
+        <div class="header-title">
+            <h1>Comunicación y Sociedad II</h1>
+            <p style="font-size: 20px; color: var(--apple-green);">¡Conectando el mundo!</p>
+        </div>
+
+        <div class="bubble-info">
+            <b style="color: var(--apple-red);">🎯 Propósito:</b><br>
+            Queremos que te conviertas en un analista experto de los medios. Aprenderás cómo han evolucionado desde la prensa escrita hasta el impacto masivo de Internet, desarrollando un pensamiento crítico para crear contenidos que realmente resuenen en tu comunidad.
+        </div>
+
+        <h2 style="font-family: 'Fredoka'; color: var(--apple-red);">📈 ¿Qué aprenderemos?</h2>
+        <div class="progression-grid">
+            <div class="prog-box">
+                <b>Progresión 1:</b> El discurso de los medios masivos. Analizamos cómo nos influyen social y culturalmente.
+            </div>
+            <div class="prog-box">
+                <b>Progresión 2:</b> La era digital. Comprendemos cómo Internet cambió las reglas del juego en la comunicación global.
+            </div>
+            <div class="prog-box">
+                <b>Progresión 3:</b> El poder de la prensa. Estudiamos su evolución histórica y su importancia como cuarto poder.
+            </div>
+        </div>
+
+        <div class="teacher-badge">
+            <img src="img3.png" alt="Luis Ángel Casso">
+            <div>
+                <h3 style="margin:0; font-family: 'Fredoka';">Mtro. Luis Ángel Casso Castelán</h3>
+                <p style="margin:0; font-size: 14px;">Especialista en Medios y Sociedad</p>
+                <i style="font-size: 18px;">"Comunicar es compartir una parte del mundo."</i>
+            </div>
+        </div>
+
+        <div class="word-wrap">
+            <div class="word-item">Medios Masivos</div>
+            <div class="word-item">Impacto Cultural</div>
+            <div class="word-item">Internet</div>
+            <div class="word-item">Prensa</div>
+            <div class="word-item">Discurso Mediático</div>
+            <div class="word-item">Contenidos Digitales</div>
+            <div class="word-item">Evolución Social</div>
+        </div>
+    </div>
+
+    <footer>Cobat 22 Hub • Comunicación y Sociedad</footer>
+
+    <script>
+        function playMusic() {
+            var audio = document.getElementById("bgMusic");
+            if (audio.paused) { audio.play(); }
+        }
+    </script>
+</body>
+</html>
